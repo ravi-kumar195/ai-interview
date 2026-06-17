@@ -1,0 +1,20 @@
+# Dependencies
+BACKEND/node_modules/
+FRONTEND/node_modules/
+
+# Environment files
+BACKEND/.env
+FRONTEND/.env
+.env
+
+# Build files
+FRONTEND/dist/
+FRONTEND/build/
+BACKEND/dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
