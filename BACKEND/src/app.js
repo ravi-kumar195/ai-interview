@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://ai-interview-git-main-ravi-kumar195s-projects.vercel.app/",
+      "https://ai-interview-three-lime.vercel.app",
     ],
     credentials: true,
   }),
