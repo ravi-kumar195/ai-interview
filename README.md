@@ -2,8 +2,6 @@
 
 A small full-stack app that helps you get ready for a job interview. Paste a job description, upload your resume, and get a personal prep plan: the questions you're likely to be asked, how to answer them, where your skills fall short, and a day-by-day plan to get ready. It can also write a version of your resume tailored to the job.
 
-**Live demo:** https://ai-interview-three-lime.vercel.app
-
 ## What it does
 
 - **Sign up and log in**, so your plans are saved to your account.
@@ -35,84 +33,6 @@ A small full-stack app that helps you get ready for a job interview. Paste a job
 | Auth | JWT stored in a cookie, bcryptjs for passwords |
 | Files and PDFs | Multer (uploads), pdf-parse (reading resumes), Puppeteer (making PDFs) |
 | AI | Google Gemini via `@google/genai` |
-
-## Getting started
-
-### What you need
-
-- Node.js 22.12 or newer
-- A MongoDB database (local or MongoDB Atlas)
-- A Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey)
-
-### 1. Clone the repo
-
-```bash
-git clone https://github.com/ravi-kumar195/ai-interview.git
-cd ai-interview
-```
-
-### 2. Set up the backend
-
-```bash
-cd BACKEND
-npm install
-```
-
-Create a file called `.env` inside the `BACKEND` folder:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=a_long_random_secret
-GOOGLE_GENAI_API_KEY=your_gemini_api_key
-```
-
-Start it:
-
-```bash
-npm run dev
-```
-
-The API runs on http://localhost:3000. If you don't want auto-restart, `npm start` works too.
-
-> Puppeteer downloads its own copy of Chrome during install, so the first `npm install` can take a minute.
-
-### 3. Set up the frontend
-
-Open a second terminal:
-
-```bash
-cd FRONTEND
-npm install
-```
-
-Create a file called `.env` inside the `FRONTEND` folder:
-
-```env
-VITE_API_URL=http://localhost:3000
-```
-
-Start it:
-
-```bash
-npm run dev
-```
-
-Open http://localhost:5173, create an account, and you're in.
-
-## API
-
-Every route starts with `/api`. Routes that need login check the token cookie that is set when you register or log in.
-
-| Method | Route | Login needed | What it does |
-| --- | --- | --- | --- |
-| POST | `/api/auth/register` | No | Create an account (`username`, `email`, `password`) |
-| POST | `/api/auth/login` | No | Log in with `email` and `password` |
-| GET | `/api/auth/logout` | No | Log out and invalidate the token |
-| GET | `/api/auth/get-me` | Yes | Get the logged-in user |
-| POST | `/api/interview` | Yes | Generate a report (form-data: `resume` PDF, `jobDescription`, `selfDescription`) |
-| GET | `/api/interview` | Yes | List your past reports |
-| GET | `/api/interview/report/:interviewId` | Yes | Get one full report |
-| POST | `/api/interview/resume/pdf/:interviewId` | Yes | Get a tailored resume PDF for that report |
 
 ## Project structure
 
